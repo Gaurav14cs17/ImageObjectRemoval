@@ -2,6 +2,12 @@
 
 A technical breakdown of every component in the object removal pipeline — what it is, what shape data flows through it, and how the pieces connect.
 
+## Method overview (from the paper)
+
+![Method Overview](../assets/diagrams/method_overview.png)
+
+The diagram above shows the full architecture: the input image and mask are encoded into latent space, concatenated with the foreground and noise, then processed by the FLUX transformer with LoRA adapters to produce a clean output.
+
 ---
 
 ## 1. High-level overview

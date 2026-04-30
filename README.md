@@ -6,6 +6,21 @@ Under the hood it uses a diffusion model (FLUX) with a LoRA adapter trained spec
 
 ---
 
+## Results
+
+Here are some real examples — input on the left, output on the right:
+
+| Input (with object) | Output (object removed) |
+|:---:|:---:|
+| ![input_1](assets/examples/input_1.png) | ![output_1](assets/examples/output_1.png) |
+| ![input_2](assets/examples/input_2.png) | ![output_2](assets/examples/output_2.png) |
+| ![input_3](assets/examples/input_3.png) | ![output_3](assets/examples/output_3.png) |
+| ![input_4](assets/examples/input_4.png) | ![output_4](assets/examples/output_4.png) |
+
+Notice how shadows and reflections are also cleanly removed, not just the object itself.
+
+---
+
 ## What can it do?
 
 - Remove objects from real-world photos (people, signs, cars, random clutter — anything you mask).
@@ -40,7 +55,6 @@ I kept things simple — there are only a few folders and each one has one job:
 │   └── mask/
 │
 ├── ControlNet_version/  ← A different variant that uses ControlNet. Self-contained.
-├── web/                 ← Static website (GitHub Pages). Not related to the Python code.
 ├── requirements.txt     ← Python dependencies
 └── pyproject.toml       ← So you can do `pip install -e .`
 ```
@@ -64,8 +78,8 @@ For the deep technical stuff:
 ### 1. Set up your environment
 
 ```bash
-git clone <your-repo-url>
-cd Omnieraser
+git clone https://github.com/Gaurav14cs17/ImageObjectRemoval.git
+cd ImageObjectRemoval
 
 python -m venv .venv
 source .venv/bin/activate
@@ -115,6 +129,8 @@ bash scripts/train_control_lora_flux.sh
 ---
 
 ## How it actually works
+
+![Method Overview](assets/diagrams/method_overview.png)
 
 Here is the short version:
 
@@ -337,6 +353,14 @@ I'd suggest going through the files in this order:
 There's a separate folder called `ControlNet_version/`. It does the same job (object removal) but uses ControlNet instead of plain LoRA for better background consistency. It's completely self-contained — has its own pipeline, its own model files, its own training script, even its own `requirements.txt`.
 
 If you want to try it, just go into that folder and follow its own instructions. You don't need to understand it to use the main project.
+
+---
+
+## Benchmark comparison
+
+How this method compares against other removal approaches on a real test set:
+
+![Benchmark Comparison](assets/diagrams/benchmark_comparison.png)
 
 ---
 

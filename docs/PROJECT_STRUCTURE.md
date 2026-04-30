@@ -2,6 +2,12 @@
 
 This is a plain-English walkthrough of every folder. Read it once and you'll know where everything lives.
 
+Here's a quick preview of what the project does — input on the left, output on the right:
+
+| Input | Output |
+|:---:|:---:|
+| ![input](../assets/examples/input_1.png) | ![output](../assets/examples/output_1.png) |
+
 ---
 
 ## The root — setup files

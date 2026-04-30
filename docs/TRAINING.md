@@ -2,6 +2,12 @@
 
 Technical guide to training the Control-LoRA adapter for object removal. Covers dataset format, the training loop internals, loss function, hyperparameters, and how to launch a run.
 
+## Data pipeline overview
+
+This is how the training data is constructed (paired video frames → object/background/mask):
+
+![Data Pipeline](../assets/diagrams/data_pipeline.png)
+
 ---
 
 ## 1. Dataset format
@@ -362,3 +368,18 @@ Tips to reduce memory:
 - Use `--offload` (moves VAE and text encoders to CPU when not in use)
 - Reduce `--resolution` (e.g. 512 instead of 1024)
 - Use `--use_8bit_adam` (already on by default)
+
+---
+
+## 14. What kind of results to expect
+
+After training, the model can cleanly remove objects and their effects. Here's a benchmark comparison against other methods:
+
+![Benchmark Comparison](../assets/diagrams/benchmark_comparison.png)
+
+And here are some example outputs:
+
+| Input | Output |
+|:---:|:---:|
+| ![input](../assets/examples/input_2.png) | ![output](../assets/examples/output_2.png) |
+| ![input](../assets/examples/input_4.png) | ![output](../assets/examples/output_4.png) |

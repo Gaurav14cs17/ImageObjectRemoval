@@ -2,6 +2,18 @@
 
 This document walks through exactly what happens when you run `scripts/test_control_lora_flux.py` or call the pipeline from your own code. Every line maps to a stage in the pipeline.
 
+## What the result looks like
+
+Here's a real input/output pair — the object and its shadow are both removed:
+
+| Input | Output |
+|:---:|:---:|
+| ![input](../assets/examples/input_1.png) | ![output](../assets/examples/output_1.png) |
+
+| Input | Output |
+|:---:|:---:|
+| ![input](../assets/examples/input_3.png) | ![output](../assets/examples/output_3.png) |
+
 ---
 
 ## 1. Load the base transformer

@@ -1,0 +1,17 @@
+torch
+torchvision
+tqdm
+datasets
+safetensors
+tokenizers
+bitsandbytes
+transformers
+sentencepiece
+numpy==1.24.3
+accelerate==1.2.1
+fastapi==0.115.6
+gradio==3.49.0
+tensorboard==2.17.0
+git+https://github.com/huggingface/diffusers.git
+opencv-python==4.11.0.86
+peft>=0.15.0
